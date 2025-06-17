@@ -6,7 +6,6 @@ export const LoginService = async (data: loginType) => {
 
         const verifyLogin = await axios.post(`${siteConfig.databaseUrl}/user/login`, data)
 
-        console.log("verifyLogin123", verifyLogin?.data)
 
         return verifyLogin?.data
     }

@@ -12,7 +12,7 @@ export const addNewImageService = async (data: any) => {
             }
         )
 
-        console.log('saveImage123', saveImage)
+        return saveImage?.data
     }
     catch (error) {
         console.log("error, failed to add new image")
@@ -37,3 +37,22 @@ export const getAllImagesOfUserSrrvice = async () => {
         console.log("Failed to fetch all images of user")
     }
 }
+
+export const deleteImageService = async (imageId: string) => {
+    try {
+        const token = localStorage.getItem("token");
+
+        const deleteImage = await axios.delete(`${siteConfig.databaseUrl}/images/delete/${imageId}`,
+            {
+                headers: {
+                    Authorization: token
+                }
+            }
+        )
+    }
+    catch (error) {
+        console.log("Failed to delete image")
+
+    }
+}
+

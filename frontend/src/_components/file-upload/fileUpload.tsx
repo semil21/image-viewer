@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import { upload } from "@vercel/blob/client";
 import { type PutBlobResult } from "@vercel/blob";
-import { addNewImage, addNewImageService } from "@/_service/image/image.servie";
+import { addNewImageService } from "@/_service/image/image.servie";
 
 const FileUpload = () => {
   const htmlInputRef = useRef<HTMLInputElement>(null);
@@ -12,7 +12,6 @@ const FileUpload = () => {
   const [blob, setBlob] = useState<PutBlobResult | null>(null);
   const [selectedFileName, setSelectedFileName] = useState<string | null>(null);
 
-  console.log("blob123", blob);
   const handleFileChange = () => {
     if (htmlInputRef.current?.files?.[0]) {
       setSelectedFileName(htmlInputRef.current.files[0].name);
