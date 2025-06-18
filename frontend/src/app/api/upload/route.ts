@@ -20,7 +20,7 @@ export async function POST(request: Request): Promise<NextResponse> {
                     }),
                 };
             },
-            onUploadCompleted: async ({ blob, tokenPayload }) => {
+            onUploadCompleted: async ({ tokenPayload }) => {
 
 
                 try {

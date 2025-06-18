@@ -8,7 +8,7 @@ import { useDeleteImageHook } from "@/_hooks/images/images.hooks";
 import { handleDownload } from "@/_config/image/image-download";
 
 const Images = () => {
-  const { data, isLoading, refetch } = useAllImagesOfUserHook();
+  const { data, isLoading } = useAllImagesOfUserHook();
   const deleteImageMutation = useDeleteImageHook();
 
   const handleDelete = async (url: string, id: string) => {

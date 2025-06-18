@@ -4,15 +4,16 @@ import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
+import { ToastContainer, toast } from "react-toastify";
 const SignUp = () => {
   const router = useRouter();
   const {
     register,
     handleSubmit,
-    watch,
-    reset,
     formState: { errors },
-  } = useForm();
+    watch,
+  } = useForm<signupType>();
 
   const password = watch("password");
 
@@ -21,20 +22,24 @@ const SignUp = () => {
     const response = await newUserService(data);
 
     if (response) {
-      reset(), localStorage.setItem("token", response.token);
+      localStorage.setItem("token", response.token);
       router.push("/dashboard");
     } else {
-      console.log("Signup failed");
+      toast.error("Faikled to sign in", {
+        autoClose: 2500,
+      });
     }
   };
-
   return (
     <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+      <ToastContainer />
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-        <img
+        <Image
           className="mx-auto h-10 w-auto"
           src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
           alt="Your Company"
+          width={40}
+          height={40}
         />
         <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">
           Sign up here

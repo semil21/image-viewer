@@ -11,7 +11,7 @@ export async function POST(request: Request) {
     try {
         await del(url);
         return NextResponse.json({ success: true });
-    } catch (error) {
+    } catch {
         return NextResponse.json({ error: 'Failed to delete blob' }, { status: 500 });
     }
 }

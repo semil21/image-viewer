@@ -7,6 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import Loader from "../loader/loader";
 import Link from "next/link";
+import Image from "next/image";
 
 const Login = () => {
   const [isCheckingAuth, setIsCheckingAuth] = useState(true);
@@ -14,9 +15,8 @@ const Login = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
-  } = useForm();
+  } = useForm<loginType>();
 
   const router = useRouter();
 
@@ -52,10 +52,12 @@ const Login = () => {
     <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
       <ToastContainer />
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-        <img
+        <Image
           className="mx-auto h-10 w-auto"
           src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
           alt="Your Company"
+          width={40}
+          height={40}
         />
         <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">
           Sign in to your account

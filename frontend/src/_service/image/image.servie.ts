@@ -14,7 +14,7 @@ export const addNewImageService = async (data: any) => {
 
         return saveImage?.data
     }
-    catch (error) {
+    catch {
         console.log("error, failed to add new image")
     }
 }
@@ -33,7 +33,7 @@ export const getAllImagesOfUserSrrvice = async () => {
         return getImagesRecord?.data?.response
 
     }
-    catch (error) {
+    catch {
         console.log("Failed to fetch all images of user")
     }
 }
@@ -49,8 +49,10 @@ export const deleteImageService = async (imageId: string) => {
                 }
             }
         )
+
+        return deleteImage?.data
     }
-    catch (error) {
+    catch {
         console.log("Failed to delete image")
 
     }

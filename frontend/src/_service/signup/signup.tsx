@@ -10,7 +10,7 @@ export const newUserService = async (data: signupType) => {
     );
 
     return saveNewUser?.data;
-  } catch (error) {
+  } catch {
     console.log("Failed to create new user");
   }
 };

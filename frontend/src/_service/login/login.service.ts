@@ -9,7 +9,7 @@ export const LoginService = async (data: loginType) => {
 
         return verifyLogin?.data
     }
-    catch (error) {
+    catch {
         console.log("error, failed to log in")
     }
 }

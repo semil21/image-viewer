@@ -1,4 +1,4 @@
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 export const handleDownload = async (imageUrl: string, fileName: string) => {
     try {
@@ -12,10 +12,9 @@ export const handleDownload = async (imageUrl: string, fileName: string) => {
         document.body.appendChild(link);
         link.click();
 
-        // Cleanup
         document.body.removeChild(link);
         window.URL.revokeObjectURL(url);
-    } catch (error) {
+    } catch {
         toast.error("Failed to download image.");
     }
 };
